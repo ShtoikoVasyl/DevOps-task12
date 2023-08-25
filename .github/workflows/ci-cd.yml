@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17' # Версія Java, яку ви хочете встановити
+          distribution: 'adopt'
 
       - name: Set Permissions on mvnw
         run: chmod 755 ./mvnw
