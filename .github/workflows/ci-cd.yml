@@ -1,0 +1,32 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main # Здійснювати CI/CD на гілці "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Виберіть операційну систему
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set Up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17' # Версія Java, яку ви хочете встановити
+
+      - name: Build Project
+        run: |
+          # Додайте команди для збирання вашого проекту
+
+      - name: Run Unit Tests
+        run: |
+          # Додайте команди для запуску тестів
+
+      - name: Update Code in Repository
+        run: |
+          # Додайте команди для оновлення коду в репозиторії
+
