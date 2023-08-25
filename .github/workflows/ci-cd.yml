@@ -18,7 +18,7 @@ jobs:
 
       - name: Build Application
         run: |
-          ./mvnw clean package
+          ./mvnw clean package -e
 
       - name: Run Unit Tests
         run: |
