@@ -29,7 +29,3 @@ jobs:
       - name: Run Unit Tests
         run: |
           ./mvnw test
-
-      - name: Run Application
-        run: |
-          java -jar ./target/*.jar --server.port=8080
