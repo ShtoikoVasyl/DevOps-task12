@@ -3,30 +3,27 @@ name: CI/CD
 on:
   push:
     branches:
-      - main # Здійснювати CI/CD на гілці "main"
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest # Виберіть операційну систему
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Set Up Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17' # Версія Java, яку ви хочете встановити
+      - name: Set Permissions on mvnw
+        run: chmod 755 ./mvnw
 
-      - name: Build Project
+      - name: Build Application
         run: |
-          # Додайте команди для збирання вашого проекту
+          ./mvnw clean package
 
       - name: Run Unit Tests
         run: |
-          # Додайте команди для запуску тестів
+          ./mvnw test
 
-      - name: Update Code in Repository
+      - name: Run Application
         run: |
-          # Додайте команди для оновлення коду в репозиторії
-
+          java -jar ./target/*.jar --server.port=8080
